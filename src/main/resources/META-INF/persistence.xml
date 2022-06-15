@@ -5,7 +5,7 @@
              xsi:schemalocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 
 
-    <persistence-unit name="ormClimbers" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="ormClimber" transaction-type="RESOURCE_LOCAL">
         <class>ru.itmo.courses.climbers.jpa.entity.Mountain</class>
         <class>ru.itmo.courses.climbers.jpa.entity.Climber</class>
         <class>ru.itmo.courses.climbers.jpa.entity.Group</class>
@@ -14,11 +14,11 @@
 
         <properties>
             <!--название бд-->
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/lessonsItMO"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/lessons"/>
             <!--логин пользователя бд-->
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <!-- пароль пользователя бд-->
-            <property name="jakarta.persistence.jdbc.password" value="yo_rap"/>
+            <property name="jakarta.persistence.jdbc.password" value="Kemira2023"/>
             <!--используемый драйвер-->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 

@@ -1,56 +1,25 @@
 package ru.itmo.courses.climbers.jpa.entity;
-
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NonNull;
+import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-
-@Data
+@Setter
+@Getter
 @NonNull
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "tb_group")
 @Entity
 public class Group extends BaseId {
+
+    public boolean OpenAdd = false;
+    private Mountain mountain;
+    private Climber[] climbers = new Climber[4]; // было 3
+
     public Group() {
     }
 
-    //    //НОВЫЙ КОД // СТАТЬЯ
-//@ManyToMany(fetch = FetchType.EAGER, mappedBy = "books")
-//private Set<Mountain> mountainSet;
-//
-//    public Set<Mountain> getMountain() {
-//        return mountainSet;
-//    }
-//
-//    public void setUsers(Set<Mountain> mountainSet) {
-//        this.mountainSet = mountainSet;
-//    }
-
-//    //кончился новый код
-
-  //  @Column(name = "empty_place")
-    public boolean isOpentoAdd = false;
-
-    //@Column(name = "mountain_name_for_group", length = 20, nullable = false)
-    private Mountain mountain;
-
-    //@Column(name = "climber_list")
-    private Climber[] climbers = new Climber[3];
-
-//    public Group(boolean isOpentoAdd, Mountain mountain) {
-//        this.isOpentoAdd = isOpentoAdd;
-//        this.mountain = mountain;
-//    }
-
-
-    public void addToGroup(Climber climber) {
-        if (!isOpentoAdd) {
-            System.out.println("Набор закрыт");
+    public void addGroup(Climber climber) {
+        if (!OpenAdd) {
+            System.out.println("Stop add");
             return;
         }
         for (int i = 0; i < climbers.length; i++) {
@@ -59,7 +28,7 @@ public class Group extends BaseId {
                 return;
             }
         }
-        System.out.println("Альпинист добавлен");
+        System.out.println("Clamber was added");
     }
 
 }
